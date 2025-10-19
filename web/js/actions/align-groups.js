@@ -4,56 +4,98 @@ import { getGroupBounding, moveGroupTo } from '../utils/group-utils.js';
 
 export async function alignGroupsToLeft() {
   return await executeGroupOperation(groups => {
-    const leftmostX = Math.min(...groups.map(group => {
-      const [x] = getGroupBounding(group);
-      return x;
-    }));
+    let targetX;
+    if (state.altKeyPressed) {
+      // Alt key: align all groups to the rightmost group's left position
+      targetX = Math.max(...groups.map(group => {
+        const [x] = getGroupBounding(group);
+        return x;
+      }));
+    } else {
+      // Default: align all groups to the leftmost group's left position
+      targetX = Math.min(...groups.map(group => {
+        const [x] = getGroupBounding(group);
+        return x;
+      }));
+    }
 
     groups.forEach(group => {
       const [_, y] = getGroupBounding(group);
-      moveGroupTo(group, leftmostX, y, true);
+      moveGroupTo(group, targetX, y, true);
     });
   });
 }
 
 export async function alignGroupsToRight() {
   return await executeGroupOperation(groups => {
-    const rightmostEdge = Math.max(...groups.map(group => {
-      const [x, _, width] = getGroupBounding(group);
-      return x + width;
-    }));
+    let targetRightEdge;
+    if (state.altKeyPressed) {
+      // Alt key: align all groups to the leftmost group's right edge
+      const leftmostEdge = Math.min(...groups.map(group => {
+        const [x, _, width] = getGroupBounding(group);
+        return x + width;
+      }));
+      targetRightEdge = leftmostEdge;
+    } else {
+      // Default: align all groups to the rightmost group's right edge
+      targetRightEdge = Math.max(...groups.map(group => {
+        const [x, _, width] = getGroupBounding(group);
+        return x + width;
+      }));
+    }
 
     groups.forEach(group => {
       const [_, y, width] = getGroupBounding(group);
-      moveGroupTo(group, rightmostEdge - width, y, true);
+      moveGroupTo(group, targetRightEdge - width, y, true);
     });
   });
 }
 
 export async function alignGroupsToTop() {
   return await executeGroupOperation(groups => {
-    const topmostY = Math.min(...groups.map(group => {
-      const [_, y] = getGroupBounding(group);
-      return y;
-    }));
+    let targetY;
+    if (state.altKeyPressed) {
+      // Alt key: align all groups to the bottommost group's top position
+      targetY = Math.max(...groups.map(group => {
+        const [_, y] = getGroupBounding(group);
+        return y;
+      }));
+    } else {
+      // Default: align all groups to the topmost group's top position
+      targetY = Math.min(...groups.map(group => {
+        const [_, y] = getGroupBounding(group);
+        return y;
+      }));
+    }
 
     groups.forEach(group => {
       const [x] = getGroupBounding(group);
-      moveGroupTo(group, x, topmostY, true);
+      moveGroupTo(group, x, targetY, true);
     });
   });
 }
 
 export async function alignGroupsToBottom() {
   return await executeGroupOperation(groups => {
-    const bottommostEdge = Math.max(...groups.map(group => {
-      const [_, y, __, height] = getGroupBounding(group);
-      return y + height;
-    }));
+    let targetBottomEdge;
+    if (state.altKeyPressed) {
+      // Alt key: align all groups to the topmost group's bottom edge
+      const topmostEdge = Math.min(...groups.map(group => {
+        const [_, y, __, height] = getGroupBounding(group);
+        return y + height;
+      }));
+      targetBottomEdge = topmostEdge;
+    } else {
+      // Default: align all groups to the bottommost group's bottom edge
+      targetBottomEdge = Math.max(...groups.map(group => {
+        const [_, y, __, height] = getGroupBounding(group);
+        return y + height;
+      }));
+    }
 
     groups.forEach(group => {
       const [x, _, __, height] = getGroupBounding(group);
-      moveGroupTo(group, x, bottommostEdge - height, true);
+      moveGroupTo(group, x, targetBottomEdge - height, true);
     });
   });
 }

@@ -14,15 +14,28 @@ export function stretchNodesToLeft() {
         }
       });
     } else {
-      nodes.forEach(node => {
-        if (node.pos[0] > leftmostX) {
-          const rightEdge = node.pos[0] + node.size[0];
-          node.pos[0] = leftmostX;
-          const config = window.alignerPlugin.getConfig();
-          const newWidth = Math.max(rightEdge - leftmostX, config.minNodeSize.width);
-          node.size[0] = newWidth;
-        }
-      });
+      if (state.altKeyPressed) {
+        const leftmostNode = nodes.find(node => Math.abs(node.pos[0] - leftmostX) < 1);
+        const targetRightEdge = leftmostNode.pos[0] + leftmostNode.size[0];
+        
+        nodes.forEach(node => {
+          if (node.pos[0] > leftmostX) {
+            const config = window.alignerPlugin.getConfig();
+            const newWidth = Math.max(targetRightEdge - node.pos[0], config.minNodeSize.width);
+            node.size[0] = newWidth;
+          }
+        });
+      } else {
+        nodes.forEach(node => {
+          if (node.pos[0] > leftmostX) {
+            const rightEdge = node.pos[0] + node.size[0];
+            node.pos[0] = leftmostX;
+            const config = window.alignerPlugin.getConfig();
+            const newWidth = Math.max(rightEdge - leftmostX, config.minNodeSize.width);
+            node.size[0] = newWidth;
+          }
+        });
+      }
     }
   });
 }
@@ -44,13 +57,30 @@ export function stretchNodesToRight() {
         }
       });
     } else {
-      nodes.forEach(node => {
-        if (node.pos[0] + node.size[0] < rightmostEdge) {
-          const config = window.alignerPlugin.getConfig();
-          const newWidth = Math.max(rightmostEdge - node.pos[0], config.minNodeSize.width);
-          node.size[0] = newWidth;
-        }
-      });
+      if (state.altKeyPressed) {
+        const rightmostNode = nodes.find(node => 
+          Math.abs((node.pos[0] + node.size[0]) - rightmostEdge) < 1
+        );
+        const targetLeftEdge = rightmostNode.pos[0];
+        
+        nodes.forEach(node => {
+          if (node.pos[0] + node.size[0] < rightmostEdge) {
+            const config = window.alignerPlugin.getConfig();
+            const currentRightEdge = node.pos[0] + node.size[0];
+            const newWidth = Math.max(currentRightEdge - targetLeftEdge, config.minNodeSize.width);
+            node.pos[0] = targetLeftEdge;
+            node.size[0] = newWidth;
+          }
+        });
+      } else {
+        nodes.forEach(node => {
+          if (node.pos[0] + node.size[0] < rightmostEdge) {
+            const config = window.alignerPlugin.getConfig();
+            const newWidth = Math.max(rightmostEdge - node.pos[0], config.minNodeSize.width);
+            node.size[0] = newWidth;
+          }
+        });
+      }
     }
   });
 }
@@ -70,15 +100,29 @@ export function stretchNodesToTop() {
         }
       });
     } else {
-      nodes.forEach(node => {
-        if (node.pos[1] > topmostY) {
-          const bottomEdge = node.pos[1] + node.size[1];
-          node.pos[1] = topmostY;
-          const config = window.alignerPlugin.getConfig();
-          const newHeight = Math.max(bottomEdge - topmostY, config.minNodeSize.height);
-          node.size[1] = newHeight;
-        }
-      });
+      if (state.altKeyPressed) {
+        const bottommostY = Math.max(...nodes.map(node => node.pos[1]));
+        
+        nodes.forEach(node => {
+          if (node.pos[1] < bottommostY) {
+            const config = window.alignerPlugin.getConfig();
+            const currentBottomEdge = node.pos[1] + node.size[1];
+            const newHeight = Math.max(currentBottomEdge - bottommostY, config.minNodeSize.height);
+            node.pos[1] = bottommostY;
+            node.size[1] = newHeight;
+          }
+        });
+      } else {
+        nodes.forEach(node => {
+          if (node.pos[1] > topmostY) {
+            const bottomEdge = node.pos[1] + node.size[1];
+            node.pos[1] = topmostY;
+            const config = window.alignerPlugin.getConfig();
+            const newHeight = Math.max(bottomEdge - topmostY, config.minNodeSize.height);
+            node.size[1] = newHeight;
+          }
+        });
+      }
     }
   });
 }
@@ -100,13 +144,25 @@ export function stretchNodesToBottom() {
         }
       });
     } else {
-      nodes.forEach(node => {
-        if (node.pos[1] + node.size[1] < bottommostEdge) {
-          const config = window.alignerPlugin.getConfig();
-          const newHeight = Math.max(bottommostEdge - node.pos[1], config.minNodeSize.height);
-          node.size[1] = newHeight;
-        }
-      });
+      if (state.altKeyPressed) {
+        const topmostEdge = Math.min(...nodes.map(node => node.pos[1] + node.size[1]));
+        
+        nodes.forEach(node => {
+          if (node.pos[1] + node.size[1] > topmostEdge) {
+            const config = window.alignerPlugin.getConfig();
+            const newHeight = Math.max(topmostEdge - node.pos[1], config.minNodeSize.height);
+            node.size[1] = newHeight;
+          }
+        });
+      } else {
+        nodes.forEach(node => {
+          if (node.pos[1] + node.size[1] < bottommostEdge) {
+            const config = window.alignerPlugin.getConfig();
+            const newHeight = Math.max(bottommostEdge - node.pos[1], config.minNodeSize.height);
+            node.size[1] = newHeight;
+          }
+        });
+      }
     }
   });
 }

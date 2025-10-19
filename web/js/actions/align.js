@@ -3,36 +3,62 @@ import { executeNodeOperation } from './operations.js';
 
 export function alignNodesToLeft() {
   return executeNodeOperation("alignment", nodes => {
-    const leftmostX = Math.min(...nodes.map(node => node.pos[0]));
+    let targetX;
+    if (state.altKeyPressed) {
+      targetX = Math.max(...nodes.map(node => node.pos[0]));
+    } else {
+      targetX = Math.min(...nodes.map(node => node.pos[0]));
+    }
+    
     nodes.forEach(node => {
-      node.pos[0] = leftmostX;
+      node.pos[0] = targetX;
     });
   });
 }
 
 export function alignNodesToRight() {
   return executeNodeOperation("alignment", nodes => {
-    const rightmostEdge = Math.max(...nodes.map(node => node.pos[0] + node.size[0]));
+    let targetRightEdge;
+    if (state.altKeyPressed) {
+      const leftmostEdge = Math.min(...nodes.map(node => node.pos[0] + node.size[0]));
+      targetRightEdge = leftmostEdge;
+    } else {
+      targetRightEdge = Math.max(...nodes.map(node => node.pos[0] + node.size[0]));
+    }
+    
     nodes.forEach(node => {
-      node.pos[0] = rightmostEdge - node.size[0];
+      node.pos[0] = targetRightEdge - node.size[0];
     });
   });
 }
 
 export function alignNodesToTop() {
   return executeNodeOperation("alignment", nodes => {
-    const topmostY = Math.min(...nodes.map(node => node.pos[1]));
+    let targetY;
+    if (state.altKeyPressed) {
+      targetY = Math.max(...nodes.map(node => node.pos[1]));
+    } else {
+      targetY = Math.min(...nodes.map(node => node.pos[1]));
+    }
+    
     nodes.forEach(node => {
-      node.pos[1] = topmostY;
+      node.pos[1] = targetY;
     });
   });
 }
 
 export function alignNodesToBottom() {
   return executeNodeOperation("alignment", nodes => {
-    const bottommostEdge = Math.max(...nodes.map(node => node.pos[1] + node.size[1]));
+    let targetBottomEdge;
+    if (state.altKeyPressed) {
+      const topmostEdge = Math.min(...nodes.map(node => node.pos[1] + node.size[1]));
+      targetBottomEdge = topmostEdge;
+    } else {
+      targetBottomEdge = Math.max(...nodes.map(node => node.pos[1] + node.size[1]));
+    }
+    
     nodes.forEach(node => {
-      node.pos[1] = bottommostEdge - node.size[1];
+      node.pos[1] = targetBottomEdge - node.size[1];
     });
   });
 }
