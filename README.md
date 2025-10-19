@@ -52,14 +52,12 @@ The following features support both nodes and groups
    ```
 
 ## Usage
-### Default Operation Method
-- Use `Alt+A` to activate the cross panel
-- Hold the `Shift` key to keep the cross panel displayed for continuous operations
+### Default Operation Method (Updated and Recommended)
+- Use `~` to activate the cross panel
+- After testing, the shortcut key `~` has the least likelihood of causing conflicts. You can still change it back to the previous traditional operation method or use the `Tab` key, consistent with the [Video Tutorial](https://youtu.be/p1niyxwsOes), to trigger the cross panel.
 
-### Smoother Operation Method
-- Check `Hold Shortcut Mode`, change the shortcut to `Tab` or other suitable keys, such as `~` key
-- Hold the `Tab` key to activate the cross panel, move the cursor over an icon without clicking, release the `Tab` key to execute the operation
-- Hold the `Tab` key and click on icons for continuous operations
+### Traditional Operation Method
+- Uncheck "Hold Shortcut Mode" and change the shortcut to `Alt+A`.
 
 ### Advanced Alignment and Stretching Tips
 Hold the `Alt` key for reverse operations, for example:
