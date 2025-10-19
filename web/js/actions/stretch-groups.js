@@ -4,23 +4,30 @@ import { getGroupBounding, setGroupBounding } from '../utils/group-utils.js';
 import { getComfyUIAppInstance } from '../utils/comfy-app.js';
 
 const TITLE_BAR_PADDING = 64;
-const DEFAULT_PADDING = 6;
+const DEFAULT_PADDING = 10;
 const HORIZONTAL_OFFSET = 1;
 const VERTICAL_OFFSET = 1;
 
 export async function stretchGroupsToLeft() {
   return await executeGroupOperation(groups => {
-    const leftmostX = Math.min(...groups.map(group => {
-      const [x] = getGroupBounding(group);
-      return x;
-    }));
+    const isAltPressed = state.altKeyPressed;
+    
+    const targetX = isAltPressed 
+      ? Math.max(...groups.map(group => {
+          const [x] = getGroupBounding(group);
+          return x;
+        }))
+      : Math.min(...groups.map(group => {
+          const [x] = getGroupBounding(group);
+          return x;
+        }));
 
-    const isLeftAligned = groups.every(group => {
+    const isAligned = groups.every(group => {
       const [x] = getGroupBounding(group);
-      return Math.abs(x - leftmostX) < 1;
+      return Math.abs(x - targetX) < 1;
     });
 
-    if (isLeftAligned) {
+    if (isAligned) {
       const minWidth = Math.min(...groups.map(group => {
         const [,, width] = getGroupBounding(group);
         return width;
@@ -36,13 +43,15 @@ export async function stretchGroupsToLeft() {
       groups.forEach(group => {
         const [x, y, width, height] = getGroupBounding(group);
 
-        if (x > leftmostX) {
+        const shouldStretch = isAltPressed ? (x < targetX) : (x > targetX);
+
+        if (shouldStretch) {
           const rightEdge = x + width;
           const config = window.alignerPlugin.getConfig();
           const minWidth = config.minNodeSize?.width || 50;
-          const newWidth = Math.max(rightEdge - leftmostX, minWidth);
+          const newWidth = Math.max(rightEdge - targetX, minWidth);
 
-          setGroupBounding(group, leftmostX, y, newWidth, height, true, false);
+          setGroupBounding(group, targetX, y, newWidth, height, true, false);
         }
       });
     }
@@ -51,17 +60,24 @@ export async function stretchGroupsToLeft() {
 
 export async function stretchGroupsToRight() {
   return await executeGroupOperation(groups => {
-    const rightmostEdge = Math.max(...groups.map(group => {
-      const [x,, width] = getGroupBounding(group);
-      return x + width;
-    }));
+    const isAltPressed = state.altKeyPressed;
+    
+    const targetRightEdge = isAltPressed 
+      ? Math.min(...groups.map(group => {
+          const [x,, width] = getGroupBounding(group);
+          return x + width;
+        }))
+      : Math.max(...groups.map(group => {
+          const [x,, width] = getGroupBounding(group);
+          return x + width;
+        }));
 
-    const isRightAligned = groups.every(group => {
+    const isAligned = groups.every(group => {
       const [x,, width] = getGroupBounding(group);
-      return Math.abs((x + width) - rightmostEdge) < 1;
+      return Math.abs((x + width) - targetRightEdge) < 1;
     });
 
-    if (isRightAligned) {
+    if (isAligned) {
       const minWidth = Math.min(...groups.map(group => {
         const [,, width] = getGroupBounding(group);
         return width;
@@ -78,10 +94,12 @@ export async function stretchGroupsToRight() {
       groups.forEach(group => {
         const [x, y, width, height] = getGroupBounding(group);
 
-        if (x + width < rightmostEdge) {
+        const shouldStretch = isAltPressed ? (x + width > targetRightEdge) : (x + width < targetRightEdge);
+
+        if (shouldStretch) {
           const config = window.alignerPlugin.getConfig();
           const minWidth = config.minNodeSize?.width || 50;
-          const newWidth = Math.max(rightmostEdge - x, minWidth);
+          const newWidth = Math.max(targetRightEdge - x, minWidth);
 
           setGroupBounding(group, x, y, newWidth, height, true, false);
         }
@@ -92,17 +110,24 @@ export async function stretchGroupsToRight() {
 
 export async function stretchGroupsToTop() {
   return await executeGroupOperation(groups => {
-    const topmostY = Math.min(...groups.map(group => {
-      const [, y] = getGroupBounding(group);
-      return y;
-    }));
+    const isAltPressed = state.altKeyPressed;
 
-    const isTopAligned = groups.every(group => {
+    const targetY = isAltPressed 
+      ? Math.max(...groups.map(group => {
+          const [, y] = getGroupBounding(group);
+          return y;
+        }))
+      : Math.min(...groups.map(group => {
+          const [, y] = getGroupBounding(group);
+          return y;
+        }));
+
+    const isAligned = groups.every(group => {
       const [, y] = getGroupBounding(group);
-      return Math.abs(y - topmostY) < 1;
+      return Math.abs(y - targetY) < 1;
     });
 
-    if (isTopAligned) {
+    if (isAligned) {
       const minHeight = Math.min(...groups.map(group => {
         const [,,, height] = getGroupBounding(group);
         return height;
@@ -118,13 +143,15 @@ export async function stretchGroupsToTop() {
       groups.forEach(group => {
         const [x, y, width, height] = getGroupBounding(group);
 
-        if (y > topmostY) {
+        const shouldStretch = isAltPressed ? (y < targetY) : (y > targetY);
+
+        if (shouldStretch) {
           const bottomEdge = y + height;
           const config = window.alignerPlugin.getConfig();
           const minHeight = config.minNodeSize?.height || 50;
-          const newHeight = Math.max(bottomEdge - topmostY, minHeight);
+          const newHeight = Math.max(bottomEdge - targetY, minHeight);
 
-          setGroupBounding(group, x, topmostY, width, newHeight, true, false);
+          setGroupBounding(group, x, targetY, width, newHeight, true, false);
         }
       });
     }
@@ -133,17 +160,24 @@ export async function stretchGroupsToTop() {
 
 export async function stretchGroupsToBottom() {
   return await executeGroupOperation(groups => {
-    const bottommostEdge = Math.max(...groups.map(group => {
-      const [, y,, height] = getGroupBounding(group);
-      return y + height;
-    }));
+    const isAltPressed = state.altKeyPressed;
 
-    const isBottomAligned = groups.every(group => {
+    const targetBottomEdge = isAltPressed 
+      ? Math.min(...groups.map(group => {
+          const [, y,, height] = getGroupBounding(group);
+          return y + height;
+        }))
+      : Math.max(...groups.map(group => {
+          const [, y,, height] = getGroupBounding(group);
+          return y + height;
+        }));
+
+    const isAligned = groups.every(group => {
       const [, y,, height] = getGroupBounding(group);
-      return Math.abs((y + height) - bottommostEdge) < 1;
+      return Math.abs((y + height) - targetBottomEdge) < 1;
     });
 
-    if (isBottomAligned) {
+    if (isAligned) {
       const minHeight = Math.min(...groups.map(group => {
         const [,,, height] = getGroupBounding(group);
         return height;
@@ -160,10 +194,12 @@ export async function stretchGroupsToBottom() {
       groups.forEach(group => {
         const [x, y, width, height] = getGroupBounding(group);
 
-        if (y + height < bottommostEdge) {
+        const shouldStretch = isAltPressed ? (y + height > targetBottomEdge) : (y + height < targetBottomEdge);
+
+        if (shouldStretch) {
           const config = window.alignerPlugin.getConfig();
           const minHeight = config.minNodeSize?.height || 50;
-          const newHeight = Math.max(bottommostEdge - y, minHeight);
+          const newHeight = Math.max(targetBottomEdge - y, minHeight);
 
           setGroupBounding(group, x, y, width, newHeight, true, false);
         }

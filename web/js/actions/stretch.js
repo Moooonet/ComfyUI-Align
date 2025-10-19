@@ -15,13 +15,14 @@ export function stretchNodesToLeft() {
       });
     } else {
       if (state.altKeyPressed) {
-        const leftmostNode = nodes.find(node => Math.abs(node.pos[0] - leftmostX) < 1);
-        const targetRightEdge = leftmostNode.pos[0] + leftmostNode.size[0];
+        const rightmostX = Math.max(...nodes.map(node => node.pos[0]));
         
         nodes.forEach(node => {
-          if (node.pos[0] > leftmostX) {
+          if (node.pos[0] < rightmostX) {
+            const rightEdge = node.pos[0] + node.size[0];
+            node.pos[0] = rightmostX;
             const config = window.alignerPlugin.getConfig();
-            const newWidth = Math.max(targetRightEdge - node.pos[0], config.minNodeSize.width);
+            const newWidth = Math.max(rightEdge - rightmostX, config.minNodeSize.width);
             node.size[0] = newWidth;
           }
         });
@@ -58,17 +59,12 @@ export function stretchNodesToRight() {
       });
     } else {
       if (state.altKeyPressed) {
-        const rightmostNode = nodes.find(node => 
-          Math.abs((node.pos[0] + node.size[0]) - rightmostEdge) < 1
-        );
-        const targetLeftEdge = rightmostNode.pos[0];
+        const leftmostEdge = Math.min(...nodes.map(node => node.pos[0] + node.size[0]));
         
         nodes.forEach(node => {
-          if (node.pos[0] + node.size[0] < rightmostEdge) {
+          if (node.pos[0] + node.size[0] > leftmostEdge) {
             const config = window.alignerPlugin.getConfig();
-            const currentRightEdge = node.pos[0] + node.size[0];
-            const newWidth = Math.max(currentRightEdge - targetLeftEdge, config.minNodeSize.width);
-            node.pos[0] = targetLeftEdge;
+            const newWidth = Math.max(leftmostEdge - node.pos[0], config.minNodeSize.width);
             node.size[0] = newWidth;
           }
         });
