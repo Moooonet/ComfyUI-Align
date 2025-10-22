@@ -88,9 +88,8 @@ When a single node group is selected:
   - **Apply color to node panel** - Change the color of the node panel (check according to personal preference)
 
 - **Shortcuts**
-  - **Default shortcut** - `Alt+A`
-  - **Hold Shortcut Mode** - When checked, hold the shortcut key to display the panel, move the cursor over an icon, and release to execute the operation. You can also hold the shortcut key and click on icons for continuous operations
-  - Recommended setting: If you check `Hold Shortcut Mode`, change the shortcut to the `Tab` or `~` key for smoother operation.
+  - **Default shortcut** - `~`
+  - **Reverse operation** - `~ + Alt`
 
 - **Spacing Settings**
   - Node Horizontal Spacing
