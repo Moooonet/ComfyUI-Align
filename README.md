@@ -52,12 +52,13 @@ The following features support both nodes and groups
    ```
 
 ## Usage
-### Default Operation Method (Updated and Recommended)
-- Use `~` to activate the cross panel
-- After testing, the shortcut key `~` has the least likelihood of causing conflicts. You can still change it back to the previous traditional operation method or use the `Tab` key, consistent with the [Video Tutorial](https://youtu.be/p1niyxwsOes), to trigger the cross panel.
+### Default Operation Method  
+- Hold `Alt+A` to activate the cross panel.  
+- Hold the `Alt` key to reverse alignment and stretching.  
 
-### Traditional Operation Method
-- Uncheck "Hold Shortcut Mode" and change the shortcut to `Alt+A`.
+### Smoother Operation Method  
+- Check `Hold Shortcut Mode` and change the shortcut key to `Tab` or `~` (it is recommended to set it to `~` to avoid shortcut conflicts).  
+- Hold `~ + Alt` to reverse alignment and stretching.
 
 ### Advanced Alignment and Stretching Tips
 Hold the `Alt` key for reverse operations, for example:
@@ -86,10 +87,6 @@ When a single node group is selected:
 - **Color Application**
   - **Apply color to node header** - Change the color of the node title bar (checked by default)
   - **Apply color to node panel** - Change the color of the node panel (check according to personal preference)
-
-- **Shortcuts**
-  - **Default shortcut** - `~`
-  - **Reverse operation** - `~ + Alt`
 
 - **Spacing Settings**
   - Node Horizontal Spacing
