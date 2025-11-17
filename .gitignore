@@ -4,3 +4,5 @@ images/
 MANIFEST.in
 vite.svg
 .github/
+pyproject.toml
+.gitignore
