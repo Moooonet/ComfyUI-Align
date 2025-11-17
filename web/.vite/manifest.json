@@ -1,0 +1,72 @@
+{
+  "_defaultColors-Js3rIaY-.js": {
+    "file": "align/defaultColors-Js3rIaY-.js",
+    "name": "defaultColors",
+    "imports": [
+      "_groups-dbOCuPdX.js",
+      "src/main.tsx"
+    ]
+  },
+  "_groups-dbOCuPdX.js": {
+    "file": "align/groups-dbOCuPdX.js",
+    "name": "groups"
+  },
+  "_vendor-Bzgz95E1.js": {
+    "file": "align/vendor-Bzgz95E1.js",
+    "name": "vendor"
+  },
+  "src/App.tsx": {
+    "file": "align/App-C2DPmJLU.js",
+    "name": "App",
+    "src": "src/App.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "src/main.tsx",
+      "src/actions/dispatch.ts",
+      "_defaultColors-Js3rIaY-.js",
+      "_groups-dbOCuPdX.js",
+      "_vendor-Bzgz95E1.js"
+    ],
+    "css": [
+      "align/App-tn0RQdqM.css"
+    ]
+  },
+  "src/actions/colorBar.ts": {
+    "file": "align/colorBar-D0KBdv1W.js",
+    "name": "colorBar",
+    "src": "src/actions/colorBar.ts",
+    "isDynamicEntry": true,
+    "imports": [
+      "_defaultColors-Js3rIaY-.js",
+      "_groups-dbOCuPdX.js",
+      "src/main.tsx",
+      "_vendor-Bzgz95E1.js"
+    ]
+  },
+  "src/actions/dispatch.ts": {
+    "file": "align/dispatch-BoyZYEfc.js",
+    "name": "dispatch",
+    "src": "src/actions/dispatch.ts",
+    "isDynamicEntry": true,
+    "imports": [
+      "_groups-dbOCuPdX.js"
+    ]
+  },
+  "src/main.tsx": {
+    "file": "align/main.js",
+    "name": "main",
+    "src": "src/main.tsx",
+    "isEntry": true,
+    "imports": [
+      "_vendor-Bzgz95E1.js"
+    ],
+    "dynamicImports": [
+      "src/App.tsx",
+      "src/actions/dispatch.ts",
+      "src/actions/colorBar.ts"
+    ],
+    "css": [
+      "align/main-DM81JQjQ.css"
+    ]
+  }
+}
