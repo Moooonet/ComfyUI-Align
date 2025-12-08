@@ -1,14 +1,14 @@
 {
-  "_defaultColors-Js3rIaY-.js": {
-    "file": "align/defaultColors-Js3rIaY-.js",
+  "_defaultColors-rOFAjVhq.js": {
+    "file": "align/defaultColors-rOFAjVhq.js",
     "name": "defaultColors",
     "imports": [
-      "_groups-dbOCuPdX.js",
+      "_groups-xoLWjEXo.js",
       "src/main.tsx"
     ]
   },
-  "_groups-dbOCuPdX.js": {
-    "file": "align/groups-dbOCuPdX.js",
+  "_groups-xoLWjEXo.js": {
+    "file": "align/groups-xoLWjEXo.js",
     "name": "groups"
   },
   "_vendor-Bzgz95E1.js": {
@@ -16,15 +16,15 @@
     "name": "vendor"
   },
   "src/App.tsx": {
-    "file": "align/App-o9G5EZyH.js",
+    "file": "align/App-CLABmT_f.js",
     "name": "App",
     "src": "src/App.tsx",
     "isDynamicEntry": true,
     "imports": [
       "src/main.tsx",
       "src/actions/dispatch.ts",
-      "_defaultColors-Js3rIaY-.js",
-      "_groups-dbOCuPdX.js",
+      "_defaultColors-rOFAjVhq.js",
+      "_groups-xoLWjEXo.js",
       "_vendor-Bzgz95E1.js"
     ],
     "css": [
@@ -32,24 +32,24 @@
     ]
   },
   "src/actions/colorBar.ts": {
-    "file": "align/colorBar-D0KBdv1W.js",
+    "file": "align/colorBar-Ckim_oH9.js",
     "name": "colorBar",
     "src": "src/actions/colorBar.ts",
     "isDynamicEntry": true,
     "imports": [
-      "_defaultColors-Js3rIaY-.js",
-      "_groups-dbOCuPdX.js",
+      "_defaultColors-rOFAjVhq.js",
+      "_groups-xoLWjEXo.js",
       "src/main.tsx",
       "_vendor-Bzgz95E1.js"
     ]
   },
   "src/actions/dispatch.ts": {
-    "file": "align/dispatch-BoyZYEfc.js",
+    "file": "align/dispatch-DJ7ccJgh.js",
     "name": "dispatch",
     "src": "src/actions/dispatch.ts",
     "isDynamicEntry": true,
     "imports": [
-      "_groups-dbOCuPdX.js"
+      "_groups-xoLWjEXo.js"
     ]
   },
   "src/main.tsx": {
@@ -66,7 +66,7 @@
       "src/actions/colorBar.ts"
     ],
     "css": [
-      "align/main-DM81JQjQ.css"
+      "align/main-BXLCqlh1.css"
     ]
   }
 }

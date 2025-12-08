@@ -2,9 +2,8 @@
 <img src="https://moooonet.github.io/assets/Comfy-Align//images/display.jpg" width="100%">
 <br><br>
 
-[![English](https://img.shields.io/badge/Languages-English-blue)](README.md)
-[![简体中文](https://img.shields.io/badge/%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-blue)](README_zh.md)
-[![submit issue](https://img.shields.io/badge/Submit-issue-cyan)](https://github.com/Moooonet/Comfy-Align/issues)
+[![Version](https://img.shields.io/badge/Version-3.0.2-cyan)](README.md)
+[![Youtube](https://img.shields.io/badge/Video-Tutorial-red)](https://youtu.be/p1niyxwsOes)
 
 </div>
 
@@ -12,15 +11,12 @@ ComfyUI-Align provides a powerful set of node alignment, stretching, and color c
 
 > _If this plugin has helped preserve your sanity, please consider giving a ⭐ to sustain the caffeine habit._
 
-<div align="left">
-  <p>
-    <span>Video tutorials:</span>
-    <a href="https://youtu.be/p1niyxwsOes">Youtube</a> |
-    <a href="https://www.bilibili.com/video/BV1XJ53zuE2g">BiliBili</a>
-  </p>
-</div>
-
 ## Changelog
+
+- **v3.0.2:**
+
+  - Fixed the issue of shortcut keys being ineffective in Hold Mode.
+  - Support for SubGraphs.
 
 - **v3.0.0:**
   - Completely rebuilt with Vite + React + TypeScript to support different systems.
@@ -31,7 +27,7 @@ ComfyUI-Align provides a powerful set of node alignment, stretching, and color c
 
 ## Environment
 
-- ComfyUI: Tested on version 0.3.67; theoretically supports recent and future versions.
+- ComfyUI: Tested on version 0.3.76; theoretically supports recent and future versions.
 - Python: Tested on Python 3.12
 - System: Tested on Windows 11 and Ubuntu 25.10. Other Linux distributions should work; please test yourself. Theoretically supports macOS, but it’s untested due to lack of a device.
 
