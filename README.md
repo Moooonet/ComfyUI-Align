@@ -38,7 +38,7 @@ ComfyUI-Align provides a powerful set of node alignment, stretching, and color c
 - **From ComfyUI Manager:** Search for "ComfyUI-Align" in ComfyUI Manager and install.
 - **Git Clone:** Open ComfyUI directory, navigate to `custom_nodes` folder, and run:
   ```bash
-  git clone https://github.com/yourusername/comfyui-Align.git
+  git clone https://github.com/Moooonet/ComfyUI-Align.git
   ```
 - **Restart ComfyUI:** After installation, restart ComfyUI to load the new plugin.
 
