@@ -2,7 +2,7 @@
 <img src="https://moooonet.github.io/assets/Comfy-Align//images/display.jpg" width="100%">
 <br><br>
 
-[![Version](https://img.shields.io/badge/Version-3.0.3-cyan)](README.md)
+[![Version](https://img.shields.io/badge/Version-3.0.4-cyan)](README.md)
 [![Youtube](https://img.shields.io/badge/Video-Tutorial-red)](https://youtu.be/p1niyxwsOes)
 
 </div>
@@ -10,22 +10,6 @@
 ComfyUI-Align provides a powerful set of node alignment, stretching, and color configuration tools, addressing the lack of node alignment functionality in ComfyUI
 
 > _If this plugin has helped preserve your sanity, please consider giving a ⭐ to sustain the caffeine habit._
-
-## Changelog
-- **v3.0.3:**
-  - Fix the issue where clicking on HEX may fail to copy
-    
-- **v3.0.2:**
-
-  - Fixed the issue of shortcut keys being ineffective in Hold Mode.
-  - Support for SubGraphs.
-
-- **v3.0.0:**
-  - Completely rebuilt with Vite + React + TypeScript to support different systems.
-  - Added Firefox support (Eyedropper tool is unavailable because Firefox doesn’t support the EyeDropper API).
-  - Shortcut configuration uses ComfyUI’s native implementation.
-  - ColorPicker adds history, click-to-copy HEX and RGBA values, and double-click to edit.
-  - A more polished interface.
 
 ## Environment
 
