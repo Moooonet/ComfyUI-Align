@@ -1,3 +1,35 @@
+
+<div align="right">
+  <details>
+    <summary >🌐 Language</summary>
+    <div>
+      <div align="center">
+        <a href="https://openaitx.github.io/view.html?user=Moooonet&project=ComfyUI-Align&lang=en">English</a>
+        | <a href="https://openaitx.github.io/view.html?user=Moooonet&project=ComfyUI-Align&lang=zh-CN">简体中文</a>
+        | <a href="https://openaitx.github.io/view.html?user=Moooonet&project=ComfyUI-Align&lang=zh-TW">繁體中文</a>
+        | <a href="https://openaitx.github.io/view.html?user=Moooonet&project=ComfyUI-Align&lang=ja">日本語</a>
+        | <a href="https://openaitx.github.io/view.html?user=Moooonet&project=ComfyUI-Align&lang=ko">한국어</a>
+        | <a href="https://openaitx.github.io/view.html?user=Moooonet&project=ComfyUI-Align&lang=hi">हिन्दी</a>
+        | <a href="https://openaitx.github.io/view.html?user=Moooonet&project=ComfyUI-Align&lang=th">ไทย</a>
+        | <a href="https://openaitx.github.io/view.html?user=Moooonet&project=ComfyUI-Align&lang=fr">Français</a>
+        | <a href="https://openaitx.github.io/view.html?user=Moooonet&project=ComfyUI-Align&lang=de">Deutsch</a>
+        | <a href="https://openaitx.github.io/view.html?user=Moooonet&project=ComfyUI-Align&lang=es">Español</a>
+        | <a href="https://openaitx.github.io/view.html?user=Moooonet&project=ComfyUI-Align&lang=it">Italiano</a>
+        | <a href="https://openaitx.github.io/view.html?user=Moooonet&project=ComfyUI-Align&lang=ru">Русский</a>
+        | <a href="https://openaitx.github.io/view.html?user=Moooonet&project=ComfyUI-Align&lang=pt">Português</a>
+        | <a href="https://openaitx.github.io/view.html?user=Moooonet&project=ComfyUI-Align&lang=nl">Nederlands</a>
+        | <a href="https://openaitx.github.io/view.html?user=Moooonet&project=ComfyUI-Align&lang=pl">Polski</a>
+        | <a href="https://openaitx.github.io/view.html?user=Moooonet&project=ComfyUI-Align&lang=ar">العربية</a>
+        | <a href="https://openaitx.github.io/view.html?user=Moooonet&project=ComfyUI-Align&lang=fa">فارسی</a>
+        | <a href="https://openaitx.github.io/view.html?user=Moooonet&project=ComfyUI-Align&lang=tr">Türkçe</a>
+        | <a href="https://openaitx.github.io/view.html?user=Moooonet&project=ComfyUI-Align&lang=vi">Tiếng Việt</a>
+        | <a href="https://openaitx.github.io/view.html?user=Moooonet&project=ComfyUI-Align&lang=id">Bahasa Indonesia</a>
+        | <a href="https://openaitx.github.io/view.html?user=Moooonet&project=ComfyUI-Align&lang=as">অসমীয়া</
+      </div>
+    </div>
+  </details>
+</div>
+
 <div align="center">
 <img src="https://moooonet.github.io/assets/Comfy-Align//images/display.jpg" width="100%">
 <br><br>
