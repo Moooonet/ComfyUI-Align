@@ -1,8 +1,9 @@
 <div align="center">
-<img src="https://moooonet.github.io/assets/Comfy-Align//images/display.jpg" width="100%">
+<img width="100%" height="456" alt="Untitled-1" src="https://github.com/user-attachments/assets/e591e9c2-3183-4fdb-b390-085b9ecb90fd" />
+
 <br><br>
 
-[![Version](https://img.shields.io/badge/Version-3.0.4-cyan)](README.md)
+[![Version](https://img.shields.io/badge/Version-3.1.0-cyan)](README.md)
 [![Youtube](https://img.shields.io/badge/Video-Tutorial-red)](https://youtu.be/p1niyxwsOes)
 
 </div>
@@ -11,11 +12,18 @@ ComfyUI-Align provides a powerful set of node alignment, stretching, and color c
 
 > _If this plugin has helped preserve your sanity, please consider giving a ⭐ to sustain the caffeine habit._
 
+
+## Update Notes
+ - Version 3.1.0 adds support for Nodes 2.0
+ - Adjusted ColorBar colors to make node titles easier to read
+ - Optimized some code
+
 ## Environment
 
-- ComfyUI: Tested on version 0.3.76; theoretically supports recent and future versions.
-- Python: Tested on Python 3.12
-- System: Tested on Windows 11 and Ubuntu 25.10. Other Linux distributions should work; please test yourself. Theoretically supports macOS, but it’s untested due to lack of a device.
+- ComfyUI: Tested on version 0.26.0; theoretically supports recent and future versions
+- ComfyUI_Frontend: v1.45.19
+- Python: Python 3.13.12
+- System: Tested on Windows 11 and Ubuntu 25.10. Other Linux distros and macOS should work in theory, but are untested. I lack the resources to set up additional testing environments — please test on your own.
 
 ## Install
 
@@ -31,7 +39,8 @@ ComfyUI-Align provides a powerful set of node alignment, stretching, and color c
 - **Shortcut Key:** Default is the backquote key <kbd>`</kbd>, for multi-system compatibility, the custom shortcut key is implemented using ComfyUI's native feature. Please search for "Align Panel" in Keybindings to set a custom shortcut key.
 
 <div align="center">
-  <img src="https://moooonet.github.io/assets/Comfy-Align/images/keybindings.jpg" width="100%">
+  <img width="722" height="763" alt="Untitled-2" src="https://github.com/user-attachments/assets/cb261daf-181d-4509-a4e4-a576a01e9d82" />
+
 </div>
 
 - **Two Operation Modes:**
@@ -39,7 +48,7 @@ ComfyUI-Align provides a powerful set of node alignment, stretching, and color c
 - 2. Enable Hold Mode in Settings (hold the shortcut to show the panel; hover over a button and release the key to execute without clicking; or hold the key and click different buttons to perform multiple operations).
 
 <div align="center">
-  <img src="https://moooonet.github.io/assets/Comfy-Align/images/settings.jpg" width="100%">
+  <img width="720" height="757" alt="Untitled-3" src="https://github.com/user-attachments/assets/e0f751fa-9195-41be-b18b-225b65ac22cc" />
 </div>
 
 ## Main Features
@@ -67,10 +76,9 @@ ComfyUI-Align provides a powerful set of node alignment, stretching, and color c
 
 - **ColorBar:**
 
-  - 7 default colors
-  - Moon icon (To open ColorPicker)
+  - 9 default colors
   - Clear color (clear the color of selected nodes)
-  - Apply color (apply the color from presets to the corresponding nodes)
+  - Moon icon (To open ColorPicker)
 
 - **ColorPicker:**
 
@@ -87,7 +95,7 @@ ComfyUI-Align provides a powerful set of node alignment, stretching, and color c
   - Initially, a `color_presets.json` file will be generated in the plugin root directory to store custom color presets.
   - After setting the color of nodes, click the `Save` button to save the preset.
   - Click the `Clear` button to clear all saved preset colors.
-  - Click the `Apply` button to apply the colors from presets to the corresponding nodes. (The `Apply` button is located at the last position of `ColorBar`)
+  - Click the `Apply` button to apply the colors from presets to the corresponding nodes
 
 ---
 
