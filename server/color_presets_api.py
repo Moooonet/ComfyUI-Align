@@ -6,9 +6,11 @@ import server
 
 CONFIG_PATH = None
 
+
 def init_color_presets(config_path: str) -> None:
     global CONFIG_PATH
     CONFIG_PATH = config_path
+
 
 def _ensure_config_file() -> None:
     assert CONFIG_PATH, "CONFIG_PATH must be initialized"
@@ -52,15 +54,6 @@ def _write_config(data: dict) -> bool:
 
 
 def _normalize_hex8(hex_str: str):
-    """Normalize a hex color to `#RRGGBBAA` or return `None` if invalid.
-
-    Supported inputs:
-    - `#RGB` → `#RRGGBBFF`
-    - `#RGBA` → `#RRGGBBAA`
-    - `#RRGGBB` → `#RRGGBBFF`
-    - `#RRGGBBAA` → unchanged
-    Non-matching inputs return `None`.
-    """
     try:
         s = str(hex_str or '').strip()
         if not s:
@@ -87,7 +80,9 @@ def _normalize_hex8(hex_str: str):
 def _normalize_name(name: str) -> str:
     try:
         base = str(name or '')
+        # remove parenthetical content
         base = re.sub(r"\([^)]*\)", "", base)
+        # strip non-alphanumeric characters
         return re.sub(r"[^A-Za-z0-9]", "", base)
     except Exception:
         return str(name or '')
@@ -96,10 +91,12 @@ def _normalize_name(name: str) -> str:
 async def get_color_presets(request):
     _ensure_config_file()
     cfg = _read_config()
+    # Normalize colors defensively to maintain invariants
     normalized_nodes = []
     for n in cfg.get('nodes', []):
         try:
             t = n.get('type') or 'Unknown'
+            # Filter out MarkdownNote/Note entries entirely from GET response
             tn = _normalize_name(t)
             if tn == _normalize_name('MarkdownNote') or tn == _normalize_name('Note'):
                 continue
@@ -110,6 +107,7 @@ async def get_color_presets(request):
             }
             normalized_nodes.append(nn)
         except Exception:
+            # Skip malformed entries
             pass
     return web.json_response({
         'version': cfg.get('version', 1),
@@ -123,6 +121,7 @@ async def upsert_color_presets(request):
     except Exception as e:
         return web.json_response({ 'error': f'Invalid JSON: {e}' }, status=400)
 
+    # Support both raw array and `{ nodes: [...] }`
     incoming = None
     if isinstance(payload, list):
         incoming = payload
@@ -131,12 +130,14 @@ async def upsert_color_presets(request):
     if not isinstance(incoming, list):
         return web.json_response({ 'error': '`nodes` must be an array' }, status=400)
 
+    # Normalize incoming entries
     normalized_incoming = []
     for n in incoming:
         try:
             t = (n or {}).get('type') or 'Unknown'
             color = (n or {}).get('color')
             bgcolor = (n or {}).get('bgcolor')
+            # Skip MarkdownNote/Note entirely
             tn = _normalize_name(t)
             if tn == _normalize_name('MarkdownNote') or tn == _normalize_name('Note'):
                 continue
@@ -145,9 +146,11 @@ async def upsert_color_presets(request):
                 'color': _normalize_hex8(color) if color else None,
                 'bgcolor': _normalize_hex8(bgcolor) if bgcolor else None,
             }
+            # Only keep entries that have at least one color
             if entry['color'] or entry['bgcolor']:
                 normalized_incoming.append(entry)
         except Exception:
+            # Skip malformed
             pass
 
     _ensure_config_file()
@@ -165,6 +168,7 @@ async def upsert_color_presets(request):
                 'bgcolor': _normalize_hex8(n.get('bgcolor')) if n.get('bgcolor') else None,
             })
         except Exception:
+            # Skip malformed
             pass
 
     existing_order = []
@@ -233,7 +237,7 @@ async def delete_color_preset(request):
                 t_match = str(n.get("type") or "Unknown") == str(req_type)
                 if removed == 0 and c_match and t_match:
                     removed = 1
-                    continue
+                    continue  # skip this one
             except Exception:
                 pass
             new_nodes.append(n)
@@ -270,5 +274,6 @@ def register_color_presets_routes() -> None:
             web.delete("/align/api/color_presets", delete_color_preset),
             web.delete("/align/api/color_presets/all", delete_all_color_presets),
         ])
+        print("Registered color presets API routes: GET, POST, DELETE")
     except Exception as e:
         print(f"Failed to register color presets API routes: {e}")

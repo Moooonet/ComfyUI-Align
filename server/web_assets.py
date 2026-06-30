@@ -17,21 +17,13 @@ def _get_project_name(workspace_path: str) -> str:
 
 def register_web_assets(workspace_path: str) -> None:
     web_path = os.path.join(workspace_path, "web/align")
-    manifest_path = os.path.join(workspace_path, "web/.vite/manifest.json")
-    
+
     if not os.path.exists(web_path):
         return
-    
+
     server.PromptServer.instance.app.add_routes([
         web.static("/align/", web_path),
     ])
- 
-    if os.path.exists(manifest_path):
-        async def get_manifest(request):
-            return web.FileResponse(manifest_path)
-        server.PromptServer.instance.app.add_routes([
-            web.get("/align/manifest.json", get_manifest),
-        ])
 
     project_name = _get_project_name(workspace_path)
     nodes.EXTENSION_WEB_DIRS[project_name] = os.path.join(workspace_path, "web")
