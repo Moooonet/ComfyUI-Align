@@ -3,7 +3,7 @@
 
 <br><br>
 
-[![Version](https://img.shields.io/badge/Version-3.1.0-cyan)](README.md)
+[![Version](https://img.shields.io/badge/Version-3.1.1-cyan)](README.md)
 [![Youtube](https://img.shields.io/badge/Video-Tutorial-red)](https://youtu.be/p1niyxwsOes)
 
 </div>
@@ -12,11 +12,11 @@ ComfyUI-Align provides a powerful set of node alignment, stretching, and color c
 
 > _If this plugin has helped preserve your sanity, please consider giving a ⭐ to sustain the caffeine habit._
 
-
 ## Update Notes
- - Version 3.1.0 adds support for Nodes 2.0
- - Adjusted ColorBar colors to make node titles easier to read
- - Optimized some code
+
+- Version 3.1.1 adds support for Nodes 2.0
+- Adjusted ColorBar colors to make node titles easier to read
+- Optimized some code
 
 ## Environment
 
@@ -56,12 +56,10 @@ ComfyUI-Align provides a powerful set of node alignment, stretching, and color c
 ### 1. Node and Group Alignment, Distribution, and Stretching
 
 - **Alignment:**
-
   - **Left Align, Right Align, Top Align, Bottom Align:**
   - `Alt` Key: Holding <kbd>Alt</kbd> while aligning reverses the target nodes.
 
 - **Distribution:**
-
   - **Horizontal Top Align Distribution:** Distribute nodes evenly horizontally first, then top-align.
   - **Vertical Center Align Distribution:** Distribute nodes evenly vertically first, then center-align.
   - **Spacing Setting:** Set spacing in the `Align` options.
@@ -75,13 +73,11 @@ ComfyUI-Align provides a powerful set of node alignment, stretching, and color c
 ### 2. Node and Group Color Management
 
 - **ColorBar:**
-
   - 9 default colors
   - Clear color (clear the color of selected nodes)
   - Moon icon (To open ColorPicker)
 
 - **ColorPicker:**
-
   - Color selection area
   - Eyedropper tool
   - Hue slider
@@ -113,5 +109,5 @@ ComfyUI-Align provides a powerful set of node alignment, stretching, and color c
 
 <div align="center">
   <p>Unless explicitly authorized, integration, modification, or redistribution in any form is strictly prohibited.</p>
-  <p>© 2025 Moooonet. All rights reserved.</p>
+  <p>© 2026 Moooonet. All rights reserved.</p>
 </div>
