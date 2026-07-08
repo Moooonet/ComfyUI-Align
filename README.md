@@ -3,7 +3,7 @@
 
 <br><br>
 
-[![Version](https://img.shields.io/badge/Version-3.1.1-cyan)](README.md)
+[![Version](https://img.shields.io/badge/Version-3.1.2-cyan)](README.md)
 [![Youtube](https://img.shields.io/badge/Video-Tutorial-red)](https://youtu.be/p1niyxwsOes)
 
 </div>
