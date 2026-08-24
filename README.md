@@ -93,16 +93,16 @@ ComfyUI-Align provides a powerful set of node alignment, stretching, and color c
   - Click the `Clear` button to clear all saved preset colors.
   - Click the `Apply` button to apply the colors from presets to the corresponding nodes
 
----
 
 <div align="center">
-   <a href="https://www.star-history.com/#Moooonet/ComfyUI-Align&Date">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=Moooonet/ComfyUI-Align&type=Date&theme=dark" />
-      <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=Moooonet/ComfyUI-Align&type=Date" />
-      <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=Moooonet/ComfyUI-Align&type=Date" />
-    </picture>
-   </a>
+
+<a href="https://www.star-history.com/?repos=Moooonet%2FComfyUI-Align&type=date&legend=bottom-right">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=Moooonet/ComfyUI-Align&type=date&theme=dark&legend=bottom-right&sealed_token=SvtFSnEahvBH2wvsSUcyHrkJ32I6907dtjMZnUsp8lu-bfSHYsjQatYgHjC_mX3wa-FI0ycfIyk2bCvwKXpXtrDDHPANcP6Ocaq1C4YvKTN-zqYI55xPR2TrTb2ZiF9FJDY7T86O5B4Fiwe3Xwtzzcvpg3zJSs_K3vXEct0TCLh_u9Ll0uo0e04VP9GH" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=Moooonet/ComfyUI-Align&type=date&legend=bottom-right&sealed_token=SvtFSnEahvBH2wvsSUcyHrkJ32I6907dtjMZnUsp8lu-bfSHYsjQatYgHjC_mX3wa-FI0ycfIyk2bCvwKXpXtrDDHPANcP6Ocaq1C4YvKTN-zqYI55xPR2TrTb2ZiF9FJDY7T86O5B4Fiwe3Xwtzzcvpg3zJSs_K3vXEct0TCLh_u9Ll0uo0e04VP9GH" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=Moooonet/ComfyUI-Align&type=date&legend=bottom-right&sealed_token=SvtFSnEahvBH2wvsSUcyHrkJ32I6907dtjMZnUsp8lu-bfSHYsjQatYgHjC_mX3wa-FI0ycfIyk2bCvwKXpXtrDDHPANcP6Ocaq1C4YvKTN-zqYI55xPR2TrTb2ZiF9FJDY7T86O5B4Fiwe3Xwtzzcvpg3zJSs_K3vXEct0TCLh_u9Ll0uo0e04VP9GH" />
+ </picture>
+</a>
 </div>
 
 ---
